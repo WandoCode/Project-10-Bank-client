@@ -6,8 +6,6 @@ const API_URL = 'http://localhost:3001/api/v1'
 
 const initialState = {
   status: false,
-  userFirstName: undefined,
-  userLastName: undefined,
   token: undefined,
   error: false,
 }
@@ -46,8 +44,6 @@ const connectionReducer = createReducer(initialState, (builder) => {
     })
     .addCase(logOut, (state) => {
       state.status = false
-      state.userFirstName = undefined
-      state.userLastName = undefined
       state.token = undefined
       state.error = false
     })

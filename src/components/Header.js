@@ -1,7 +1,8 @@
 import Logo from '../assets/img/argentBankLogo.png'
+import { useSelector } from 'react-redux'
 
 function Header() {
-  const currUser = undefined
+  const isConnected = useSelector((state) => state.connection.status)
 
   return (
     <nav className="main-nav">
@@ -14,7 +15,12 @@ function Header() {
         <h1 className="sr-only">Argent Bank</h1>
       </a>
       <div>
-        {!currUser && (
+        {isConnected ? (
+          <a className="main-nav-item" href="./sign-in.html">
+            <i className="fa fa-user-circle"></i>
+            Sign out
+          </a>
+        ) : (
           <a className="main-nav-item" href="./sign-in.html">
             <i className="fa fa-user-circle"></i>
             Sign In

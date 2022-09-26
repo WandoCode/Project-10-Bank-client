@@ -45,7 +45,11 @@ const connectionReducer = createReducer(initialState, (builder) => {
       state.error = true
     })
     .addCase(logOut, (state) => {
-      state = initialState
+      state.status = false
+      state.userFirstName = undefined
+      state.userLastName = undefined
+      state.token = undefined
+      state.error = false
     })
 })
 

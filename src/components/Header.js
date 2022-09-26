@@ -16,7 +16,7 @@ function Header() {
       </NavLink>
       <div>
         {isConnected ? (
-          <NavLink className="main-nav-item" to="/">
+          <NavLink className="main-nav-item" to="/logout">
             <i className="fa fa-user-circle"></i>
             Sign out
           </NavLink>

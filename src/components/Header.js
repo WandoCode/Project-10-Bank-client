@@ -1,30 +1,30 @@
 import Logo from '../assets/img/argentBankLogo.png'
 import { useSelector } from 'react-redux'
-
+import { NavLink } from 'react-router-dom'
 function Header() {
   const isConnected = useSelector((state) => state.connection.status)
 
   return (
     <nav className="main-nav">
-      <a className="main-nav-logo" href="./index.html">
+      <NavLink className="main-nav-logo" to="/">
         <img
           className="main-nav-logo-image"
           src={Logo}
           alt="Argent Bank Logo"
         />
         <h1 className="sr-only">Argent Bank</h1>
-      </a>
+      </NavLink>
       <div>
         {isConnected ? (
-          <a className="main-nav-item" href="./sign-in.html">
+          <NavLink className="main-nav-item" to="/">
             <i className="fa fa-user-circle"></i>
             Sign out
-          </a>
+          </NavLink>
         ) : (
-          <a className="main-nav-item" href="./sign-in.html">
+          <NavLink className="main-nav-item" to="/login">
             <i className="fa fa-user-circle"></i>
             Sign In
-          </a>
+          </NavLink>
         )}
       </div>
     </nav>

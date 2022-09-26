@@ -1,4 +1,5 @@
 function FeatureItem({ datas }) {
+  //TODO: (mentor): Je peux utiliser des props pour le contenu statique?
   return (
     <div className="feature-item">
       <img src={datas.image} alt={datas.altText} className="feature-icon" />

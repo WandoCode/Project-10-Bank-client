@@ -5,6 +5,7 @@ import Home from '../pages/Home'
 import Login from '../pages/Login'
 import Profil from '../pages/Profil'
 import Logout from '../features/connection/logout'
+import ProtectedRoute from '../utils/ProtectedRoute'
 
 function Routing() {
   return (
@@ -13,7 +14,14 @@ function Routing() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="login" element={<Login />} />
-          <Route path="profil" element={<Profil />} />
+          <Route
+            path="profil"
+            element={
+              <ProtectedRoute>
+                <Profil />
+              </ProtectedRoute>
+            }
+          />
           <Route path="logout" element={<Logout />} />
         </Route>
       </Routes>
@@ -22,4 +30,3 @@ function Routing() {
 }
 
 export default Routing
-// TODO: ajouter un composant ProtectedRoute sur Profil

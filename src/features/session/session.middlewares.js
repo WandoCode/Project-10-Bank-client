@@ -1,10 +1,10 @@
+import userStore from '../../store/userStore'
 import { logIn, showError, getProfil, editProfil } from './session.actions'
-import { postLogin, postUserProfil, putUserProfil } from '../../store/userStore'
 
 const logInMiddleware = (formDatas) => {
   return async (dispatch) => {
     try {
-      const data = await postLogin(formDatas)
+      const data = await userStore.postLogin(formDatas)
 
       const status = data.status
       if (status === 200) {
@@ -17,8 +17,26 @@ const logInMiddleware = (formDatas) => {
       const status = err.response.status
       if (status === 400) {
         dispatch(showError(err.response.data.message))
+      } else {
+        throw new Error(err.message)
       }
-      if (status === 500) {
+    }
+  }
+}
+
+const changeNamesMiddleware = (token, formDatas) => {
+  return async (dispatch) => {
+    try {
+      const data = await userStore.putUserProfil(token, formDatas)
+      const status = data.status
+      if (status === 200) {
+        dispatch(editProfil(formDatas))
+      }
+    } catch (err) {
+      const status = err.response.status
+      if (status === 400) {
+        dispatch(showError(err.response.data.message))
+      } else {
         throw new Error(err.message)
       }
     }
@@ -27,7 +45,7 @@ const logInMiddleware = (formDatas) => {
 
 const loadProfil = async (dispatch, token) => {
   try {
-    const data = await postUserProfil(token)
+    const data = await userStore.postUserProfil(token)
     const status = data.status
     if (status === 200) {
       const profilDetails = {
@@ -38,24 +56,9 @@ const loadProfil = async (dispatch, token) => {
   } catch (err) {
     const status = err.response.status
     if (status === 400) {
-      dispatch(showError())
-    }
-    if (status === 500) {
+      dispatch(showError(err.response.data.message))
+    } else {
       throw new Error(err.message)
-    }
-  }
-}
-
-const changeNamesMiddleware = (token, formDatas) => {
-  return async (dispatch) => {
-    try {
-      const data = await putUserProfil(token, formDatas)
-      const status = data.status
-      if (status === 200) {
-        dispatch(editProfil(formDatas))
-      }
-    } catch (err) {
-      console.log(err)
     }
   }
 }

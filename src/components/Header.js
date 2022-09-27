@@ -1,6 +1,8 @@
-import Logo from '../assets/img/argentBankLogo.png'
 import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+
+import Logo from '../assets/img/argentBankLogo.png'
+
 function Header() {
   const isConnected = useSelector((state) => state.session.status)
 

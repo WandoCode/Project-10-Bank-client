@@ -1,28 +1,34 @@
-import { useSelector, useDispatch } from 'react-redux'
 import { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+
 import { hideForm } from './formDisplay.action'
 import { changeNamesMiddleware } from '../session/session.middlewares'
 
 function EditNameForm() {
   const dispatch = useDispatch()
-  const user = useSelector((state) => state.session)
-  const token = useSelector((state) => state.session.token)
+
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
+
+  const user = useSelector((state) => state.session)
+  const token = useSelector((state) => state.session.token)
 
   const handleFirstName = (e) => {
     setFirstName(e.target.value)
   }
+
   const handleLastName = (e) => {
     setLastName(e.target.value)
   }
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    // TODO: besoin de valider les données? Pas d'infos.
+    // TODO:(mentor) besoin de valider les données? Pas d'infos sur les conditions coté serveur
     const formDatas = {
       firstName,
       lastName,
     }
+
     dispatch(changeNamesMiddleware(token, formDatas))
 
     // TODO: hide only if change successfull

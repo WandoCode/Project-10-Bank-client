@@ -16,7 +16,7 @@ function ConnectionForm() {
     if (isConnected) {
       navigate('/profil')
     }
-  }, [isConnected])
+  }, [isConnected, navigate])
 
   const handleSubmit = async (e) => {
     e.preventDefault()

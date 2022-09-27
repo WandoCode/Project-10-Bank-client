@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import Layout from '../components/Layout'
 import Home from '../pages/Home'
 import Login from '../pages/Login'
 import Profil from '../pages/Profil'
+import Layout from '../components/Layout'
 import Logout from '../features/session/logout'
 import ProtectedRoute from '../middlewares/ProtectedRoute'
 

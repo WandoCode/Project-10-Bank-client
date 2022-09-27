@@ -1,6 +1,6 @@
-import FeatureItem from '../components/FeatureItem'
 import Chat from '../assets/img/icon-chat.png'
 import Money from '../assets/img/icon-money.png'
+import FeatureItem from '../components/FeatureItem'
 import Security from '../assets/img/icon-security.png'
 
 function Home() {

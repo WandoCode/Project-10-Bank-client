@@ -35,31 +35,38 @@ function EditNameForm() {
   }
 
   return (
-    <form>
-      <label htmlFor="firstName"></label>
-      <input
-        type="text"
-        name="firstName"
-        id="firstName"
-        placeholder={user.firstName}
-        onChange={handleFirstName}
-        value={firstName}
-      />
-      <label htmlFor="lastName"></label>
-      <input
-        type="text"
-        name="lastName"
-        id="lastName"
-        placeholder={user.lastName}
-        onChange={handleLastName}
-        value={lastName}
-      />
-      <button className="save-button" onClick={handleSubmit}>
-        Save
-      </button>
-      <button className="cancel-button" onClick={handleCancel}>
-        Cancel
-      </button>
+    <form className="edit-name">
+      <div className="left-form input-wrapper ">
+        <label htmlFor="firstName"></label>
+        <input
+          type="text"
+          name="firstName"
+          id="firstName"
+          placeholder={user.firstName}
+          onChange={handleFirstName}
+          value={firstName}
+          tabIndex="1"
+        />
+        <button className="save-button" onClick={handleSubmit} tabIndex="3">
+          Save
+        </button>
+      </div>
+      <div className="right-form input-wrapper ">
+        <label htmlFor="lastName"></label>
+        <input
+          type="text"
+          name="lastName"
+          id="lastName"
+          placeholder={user.lastName}
+          onChange={handleLastName}
+          value={lastName}
+          tabIndex="2"
+        />
+
+        <button className="cancel-button" onClick={handleCancel} tabIndex="4">
+          Cancel
+        </button>
+      </div>
     </form>
   )
 }

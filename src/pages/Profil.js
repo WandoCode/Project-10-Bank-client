@@ -19,8 +19,12 @@ function Login() {
       <div className="header">
         <h1>
           Welcome back
-          <br />
-          {firstName} {lastName}!
+          {!visibleForm && (
+            <>
+              <br />
+              {firstName} {lastName}!
+            </>
+          )}
         </h1>
         {visibleForm ? (
           <EditNameForm />

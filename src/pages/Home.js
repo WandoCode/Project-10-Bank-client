@@ -24,7 +24,7 @@ function Home() {
     text: ' We use top of the line encryption to make sure your data and money is always safe.',
     altText: 'security icon',
   }
-
+  // TODO: (mentor): dans les Issues, il parlent de "See all placeholder data from mockup" => Okay ici?
   return (
     <main>
       <div className="hero">

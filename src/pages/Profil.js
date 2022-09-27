@@ -1,14 +1,14 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { showForm } from '../features/editName/editName.action'
+import { showForm } from '../features/editProfil/editProfil.action'
 import Account from '../components/Account'
-import EditNameForm from '../features/editName/editNameForm'
+import EditNameForm from '../features/editProfil/editNameForm'
 
 function Login() {
   const dispatch = useDispatch()
 
   const firstName = useSelector((state) => state.session.firstName)
   const lastName = useSelector((state) => state.session.lastName)
-  const visibleForm = useSelector((state) => state.editName.visibleForm)
+  const visibleForm = useSelector((state) => state.editProfil.visibleForm)
 
   const handleEditName = () => {
     dispatch(showForm())

@@ -224,7 +224,7 @@ form.edit-name {
   margin: 0 auto;
 }
 
-form div {
+form.edit-name div {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -233,9 +233,11 @@ form div {
 form .left-form {
   align-items: flex-end;
 }
+
 form .right-form {
   align-items: flex-start;
 }
+
 .account {
   display: flex;
   justify-content: space-between;

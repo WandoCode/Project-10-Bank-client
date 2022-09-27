@@ -1,11 +1,11 @@
 import { createReducer } from '@reduxjs/toolkit'
-import { showForm, hideForm } from './editName.action'
+import { showForm, hideForm } from './editProfil.action'
 
 const initialState = {
   visibleForm: false,
 }
 
-const editNameReducer = createReducer(initialState, (builder) => {
+const editProfilReducer = createReducer(initialState, (builder) => {
   builder.addCase(showForm, (state) => {
     state.visibleForm = true
   })
@@ -14,4 +14,4 @@ const editNameReducer = createReducer(initialState, (builder) => {
   })
 })
 
-export default editNameReducer
+export default editProfilReducer

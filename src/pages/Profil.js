@@ -1,14 +1,19 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { showForm } from '../features/formDisplay/formDisplay.action'
+import { hideForm, showForm } from '../features/formDisplay/formDisplay.action'
 import Account from '../components/Account'
 import EditNameForm from '../features/formDisplay/editNameForm'
-
+import { useEffect } from 'react'
 function Login() {
   const dispatch = useDispatch()
 
   const firstName = useSelector((state) => state.session.firstName)
   const lastName = useSelector((state) => state.session.lastName)
   const visibleForm = useSelector((state) => state.formDisplay.visibleForm)
+
+  // Set form visibility state to hidden when the Profil page is dismounted
+  useEffect(() => {
+    return () => dispatch(hideForm())
+  }, [])
 
   const handleEditName = () => {
     dispatch(showForm())

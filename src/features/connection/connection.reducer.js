@@ -1,5 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit'
-import { logIn, showError, logOut } from './connection.actions'
+import { logIn, showError, logOut, getProfilInfos } from './connection.actions'
 import axios from 'axios'
 
 const API_URL = 'http://localhost:3001/api/v1'
@@ -8,6 +8,10 @@ const initialState = {
   status: false,
   token: undefined,
   error: false,
+  email: '',
+  firstName: '',
+  lastName: '',
+  id: null,
 }
 // TODO: (mentor): ok de mettre le token ici?
 
@@ -20,6 +24,18 @@ const logUser = (formDatas) => {
       if (status === 200) {
         const token = data.body.token
         dispatch(logIn(token))
+
+        const axiosInstance = axios.create({
+          baseURL: API_URL,
+          headers: { Authorization: `Bearer ${token}` },
+        })
+
+        const rep = await axiosInstance.post('/user/profile')
+        console.log(rep)
+        const profilDetails = {
+          ...rep.data.body,
+        }
+        dispatch(getProfilInfos(profilDetails))
       }
     } catch (err) {
       const status = err.response.status
@@ -33,11 +49,22 @@ const logUser = (formDatas) => {
   }
 }
 
+const loadProfil = (token) => {
+  return async (dispatch) => {
+    try {
+      console.log(token)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+}
+
 const connectionReducer = createReducer(initialState, (builder) => {
   builder
     .addCase(logIn, (state, action) => {
       state.token = action.payload.token
       state.status = true
+      state.error = false
     })
     .addCase(showError, (state) => {
       state.error = true
@@ -46,7 +73,17 @@ const connectionReducer = createReducer(initialState, (builder) => {
       state.status = false
       state.token = undefined
       state.error = false
+      state.email = ''
+      state.firstName = ''
+      state.lastName = ''
+      state.id = null
+    })
+    .addCase(getProfilInfos, (state, action) => {
+      state.email = action.payload.email
+      state.firstName = action.payload.firstName
+      state.lastName = action.payload.lastName
+      state.id = action.payload.id
     })
 })
 
-export { connectionReducer, logUser }
+export { connectionReducer, logUser, loadProfil }

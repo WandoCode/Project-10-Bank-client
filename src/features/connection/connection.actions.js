@@ -8,4 +8,8 @@ const logOut = createAction('connection/logOut')
 
 const showError = createAction('connection/showError')
 
-export { logIn, showError, logOut }
+const getProfilInfos = createAction('connection/getDetails', (token) => ({
+  payload: token,
+}))
+
+export { logIn, showError, logOut, getProfilInfos }

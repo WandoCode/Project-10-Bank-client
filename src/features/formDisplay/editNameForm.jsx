@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { useState } from 'react'
-import { hideForm } from './editProfil.action'
+import { hideForm } from './formDisplay.action'
 import { changeNamesMiddleware } from '../session/session.middlewares'
 
 function EditNameForm() {

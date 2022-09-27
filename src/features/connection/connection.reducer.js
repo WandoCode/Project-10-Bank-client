@@ -33,4 +33,4 @@ const connectionReducer = createReducer(initialState, (builder) => {
     })
 })
 
-export { connectionReducer }
+export default connectionReducer

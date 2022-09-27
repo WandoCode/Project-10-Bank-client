@@ -8,11 +8,10 @@ function Logout() {
   const dispatch = useDispatch()
   const isConnected = useSelector((state) => state.connection.status)
 
-  if (isConnected) {
-    dispatch(logOut())
-  }
-
   useEffect(() => {
+    if (isConnected) {
+      dispatch(logOut())
+    }
     if (!isConnected) {
       navigate('/')
     }

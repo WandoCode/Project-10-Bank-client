@@ -1,15 +1,22 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { useState, useEffect } from 'react'
 import logUser from './connection.middlewares'
+import { useNavigate } from 'react-router-dom'
 
 function ConnectionForm() {
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const isConnected = useSelector((state) => state.connection.status)
+
   const [username, setUsername] = useState('tony@stark.com')
   const [password, setPassword] = useState('password123')
   const [checkbox, setCheckbox] = useState(false)
 
-  const connectionState = useSelector((state) => state.connection)
-
-  const dispatch = useDispatch()
+  useEffect(() => {
+    if (isConnected) {
+      navigate('/profil')
+    }
+  }, [isConnected])
 
   const handleSubmit = async (e) => {
     e.preventDefault()

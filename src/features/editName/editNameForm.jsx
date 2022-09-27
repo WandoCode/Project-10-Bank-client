@@ -1,12 +1,12 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { useState } from 'react'
 import { hideForm } from './editName.action'
-import { changeNamesMiddleware } from './editName.middleware'
+import { changeNamesMiddleware } from '../session/session.middlewares'
 
 function EditNameForm() {
   const dispatch = useDispatch()
-  const user = useSelector((state) => state.connection)
-  const token = useSelector((state) => state.connection.token)
+  const user = useSelector((state) => state.session)
+  const token = useSelector((state) => state.session.token)
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
 
@@ -18,7 +18,7 @@ function EditNameForm() {
   }
   const handleSubmit = (e) => {
     e.preventDefault()
-    // ...validate datas (empties fields...)
+    // TODO: besoin de valider les données? Pas d'infos.
     const formDatas = {
       firstName,
       lastName,

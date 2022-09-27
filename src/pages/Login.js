@@ -1,4 +1,4 @@
-import ConnectionForm from '../features/connection/connectionForm'
+import ConnectionForm from '../features/session/connectionForm'
 
 function SingIn() {
   return (

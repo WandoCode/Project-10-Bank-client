@@ -4,7 +4,7 @@ import Layout from '../components/Layout'
 import Home from '../pages/Home'
 import Login from '../pages/Login'
 import Profil from '../pages/Profil'
-import Logout from '../features/connection/logout'
+import Logout from '../features/session/logout'
 import ProtectedRoute from '../middlewares/ProtectedRoute'
 
 function Routing() {

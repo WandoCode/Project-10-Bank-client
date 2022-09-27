@@ -1,12 +1,12 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { useState, useEffect } from 'react'
-import logUser from './connection.middlewares'
+import { logInMiddleware } from './session.middlewares'
 import { useNavigate } from 'react-router-dom'
 
 function ConnectionForm() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const isConnected = useSelector((state) => state.connection.status)
+  const isConnected = useSelector((state) => state.session.status)
 
   const [username, setUsername] = useState('tony@stark.com')
   const [password, setPassword] = useState('password123')
@@ -26,7 +26,7 @@ function ConnectionForm() {
       password,
     }
 
-    dispatch(logUser(formDatas))
+    dispatch(logInMiddleware(formDatas))
   }
 
   const handleUsername = (e) => {

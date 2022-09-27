@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
-import connectionReducer from '../features/connection/connection.reducer'
+import sessionReducer from '../features/session/session.reducer'
 import editNameReducer from '../features/editName/editName.reducer'
 
 export const store = configureStore({
   reducer: {
-    connection: connectionReducer,
+    session: sessionReducer,
     editName: editNameReducer,
   },
 })

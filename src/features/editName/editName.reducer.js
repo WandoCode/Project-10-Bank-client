@@ -1,5 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit'
 import { showForm, hideForm } from './editName.action'
+
 const initialState = {
   visibleForm: false,
 }

@@ -6,8 +6,8 @@ import EditNameForm from '../features/editName/editNameForm'
 function Login() {
   const dispatch = useDispatch()
 
-  const firstName = useSelector((state) => state.connection.firstName)
-  const lastName = useSelector((state) => state.connection.lastName)
+  const firstName = useSelector((state) => state.session.firstName)
+  const lastName = useSelector((state) => state.session.lastName)
   const visibleForm = useSelector((state) => state.editName.visibleForm)
 
   const handleEditName = () => {

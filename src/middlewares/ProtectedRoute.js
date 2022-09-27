@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom'
 
 function ProtectedRoute({ children }) {
-  const isConnected = useSelector((state) => state.connection.status)
+  const isConnected = useSelector((state) => state.session.status)
 
   if (isConnected) return children
   else return <Navigate to="/login" />

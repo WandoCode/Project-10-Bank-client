@@ -1,7 +1,7 @@
-import { logIn, showError, getProfilInfos } from './connection.actions'
-import { postLogin, postUserProfil } from '../../store/userStore'
+import { logIn, showError, getProfil, editProfil } from './session.actions'
+import { postLogin, postUserProfil, putUserProfil } from '../../store/userStore'
 
-const logUser = (formDatas) => {
+const logInMiddleware = (formDatas) => {
   return async (dispatch) => {
     try {
       const data = await postLogin(formDatas)
@@ -33,7 +33,7 @@ const loadProfil = async (dispatch, token) => {
       const profilDetails = {
         ...data.body,
       }
-      dispatch(getProfilInfos(profilDetails))
+      dispatch(getProfil(profilDetails))
     }
   } catch (err) {
     const status = err.response.status
@@ -46,4 +46,18 @@ const loadProfil = async (dispatch, token) => {
   }
 }
 
-export default logUser
+const changeNamesMiddleware = (token, formDatas) => {
+  return async (dispatch) => {
+    try {
+      const data = await putUserProfil(token, formDatas)
+      const status = data.status
+      if (status === 200) {
+        dispatch(editProfil(formDatas))
+      }
+    } catch (err) {
+      console.log(err)
+    }
+  }
+}
+
+export { logInMiddleware, changeNamesMiddleware }

@@ -3,9 +3,9 @@ import {
   logIn,
   showError,
   logOut,
-  getProfilInfos,
+  getProfil,
   editProfil,
-} from './connection.actions'
+} from './session.actions'
 
 const initialState = {
   status: false,
@@ -19,7 +19,7 @@ const initialState = {
 }
 // TODO: (mentor): ok de mettre le token ici?
 
-const connectionReducer = createReducer(initialState, (builder) => {
+const sessionReducer = createReducer(initialState, (builder) => {
   builder
     .addCase(logIn, (state, action) => {
       state.token = action.payload.token
@@ -31,7 +31,7 @@ const connectionReducer = createReducer(initialState, (builder) => {
       state.errorMessage = action.payload.errorMessage
     })
     .addCase(logOut, () => initialState)
-    .addCase(getProfilInfos, (state, action) => {
+    .addCase(getProfil, (state, action) => {
       state.email = action.payload.email
       state.firstName = action.payload.firstName
       state.lastName = action.payload.lastName
@@ -43,4 +43,4 @@ const connectionReducer = createReducer(initialState, (builder) => {
     })
 })
 
-export default connectionReducer
+export default sessionReducer

@@ -6,7 +6,9 @@ const logIn = createAction('connection/logIn', (token) => ({
 
 const logOut = createAction('connection/logOut')
 
-const showError = createAction('connection/showError')
+const showError = createAction('connection/showError', (errorMessage) => ({
+  payload: { errorMessage },
+}))
 
 const getProfilInfos = createAction('connection/getDetails', (token) => ({
   payload: token,

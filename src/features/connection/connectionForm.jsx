@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { useState, useEffect } from 'react'
-import { logUser } from './connection.reducer'
+import logUser from './connection.middlewares'
 
 function ConnectionForm() {
   const [username, setUsername] = useState('tony@stark.com')
@@ -21,9 +21,7 @@ function ConnectionForm() {
 
     dispatch(logUser(formDatas))
   }
-  useEffect(() => {
-    console.log(connectionState)
-  }, [connectionState])
+
   const handleUsername = (e) => {
     setUsername(e.target.value)
   }

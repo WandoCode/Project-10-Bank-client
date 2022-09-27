@@ -5,7 +5,7 @@ import Home from '../pages/Home'
 import Login from '../pages/Login'
 import Profil from '../pages/Profil'
 import Logout from '../features/connection/logout'
-import ProtectedRoute from '../utils/ProtectedRoute'
+import ProtectedRoute from '../middlewares/ProtectedRoute'
 
 function Routing() {
   return (

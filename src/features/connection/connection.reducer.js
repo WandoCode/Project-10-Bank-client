@@ -1,5 +1,11 @@
 import { createReducer } from '@reduxjs/toolkit'
-import { logIn, showError, logOut, getProfilInfos } from './connection.actions'
+import {
+  logIn,
+  showError,
+  logOut,
+  getProfilInfos,
+  editProfil,
+} from './connection.actions'
 
 const initialState = {
   status: false,
@@ -30,6 +36,10 @@ const connectionReducer = createReducer(initialState, (builder) => {
       state.firstName = action.payload.firstName
       state.lastName = action.payload.lastName
       state.id = action.payload.id
+    })
+    .addCase(editProfil, (state, action) => {
+      state.firstName = action.payload.firstName
+      state.lastName = action.payload.lastName
     })
 })
 

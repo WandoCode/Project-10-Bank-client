@@ -1,12 +1,13 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { showForm } from '../features/editName/editName.action'
-
 import Account from '../components/Account'
 import EditNameForm from '../features/editName/editNameForm'
 
 function Login() {
   const dispatch = useDispatch()
 
+  const firstName = useSelector((state) => state.connection.firstName)
+  const lastName = useSelector((state) => state.connection.lastName)
   const visibleForm = useSelector((state) => state.editName.visibleForm)
 
   const handleEditName = () => {
@@ -19,7 +20,7 @@ function Login() {
         <h1>
           Welcome back
           <br />
-          Tony Jarvis!
+          {firstName} {lastName}!
         </h1>
         {visibleForm ? (
           <EditNameForm />

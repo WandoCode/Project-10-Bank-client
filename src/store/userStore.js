@@ -16,4 +16,13 @@ const postUserProfil = async (token) => {
   return rep.data
 }
 
-export { postLogin, postUserProfil }
+const putUserProfil = async (token, { firstName, lastName }) => {
+  const axiosInstance = axios.create({
+    baseURL: API_URL,
+    headers: { Authorization: `Bearer ${token}` },
+  })
+  const rep = await axiosInstance.put('/user/profile', { firstName, lastName })
+  return rep.data
+}
+
+export { postLogin, postUserProfil, putUserProfil }

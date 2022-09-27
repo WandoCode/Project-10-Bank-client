@@ -14,4 +14,8 @@ const getProfilInfos = createAction('connection/getDetails', (token) => ({
   payload: token,
 }))
 
-export { logIn, showError, logOut, getProfilInfos }
+const editProfil = createAction('connection/editProfil', (formDatas) => ({
+  payload: { ...formDatas },
+}))
+
+export { logIn, showError, logOut, getProfilInfos, editProfil }

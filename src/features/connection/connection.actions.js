@@ -1,7 +1,7 @@
 import { createAction } from '@reduxjs/toolkit'
 
-const logIn = createAction('connection/logIn', (formaDatas) => ({
-  payload: formaDatas,
+const logIn = createAction('connection/logIn', (token) => ({
+  payload: { token },
 }))
 
 const logOut = createAction('connection/logOut')

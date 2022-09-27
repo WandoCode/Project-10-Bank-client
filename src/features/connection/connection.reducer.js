@@ -31,7 +31,6 @@ const logUser = (formDatas) => {
         })
 
         const rep = await axiosInstance.post('/user/profile')
-        console.log(rep)
         const profilDetails = {
           ...rep.data.body,
         }
@@ -62,6 +61,7 @@ const loadProfil = (token) => {
 const connectionReducer = createReducer(initialState, (builder) => {
   builder
     .addCase(logIn, (state, action) => {
+      console.log(action)
       state.token = action.payload.token
       state.status = true
       state.error = false

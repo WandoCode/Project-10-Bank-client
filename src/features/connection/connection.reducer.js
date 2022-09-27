@@ -1,6 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit'
 import { logIn, showError, logOut, getProfilInfos } from './connection.actions'
-import axios from 'axios'
 
 const initialState = {
   status: false,
@@ -25,16 +24,7 @@ const connectionReducer = createReducer(initialState, (builder) => {
       state.error = true
       state.errorMessage = action.payload.errorMessage
     })
-    .addCase(logOut, (state) => {
-      state.status = false
-      state.token = undefined
-      state.error = false
-      state.errorMessage = ''
-      state.email = ''
-      state.firstName = ''
-      state.lastName = ''
-      state.id = null
-    })
+    .addCase(logOut, () => initialState)
     .addCase(getProfilInfos, (state, action) => {
       state.email = action.payload.email
       state.firstName = action.payload.firstName

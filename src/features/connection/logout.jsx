@@ -1,11 +1,24 @@
-import { Navigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { logOut } from './connection.actions'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
 
 function Logout() {
+  const navigate = useNavigate()
   const dispatch = useDispatch()
-  dispatch(logOut())
-  return <Navigate to="/" />
+  const isConnected = useSelector((state) => state.connection.status)
+
+  if (isConnected) {
+    dispatch(logOut())
+  }
+
+  useEffect(() => {
+    if (!isConnected) {
+      navigate('/')
+    }
+  }, [isConnected])
+
+  return
 }
 
 export default Logout

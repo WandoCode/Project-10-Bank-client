@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { hideForm, showForm } from '../features/formDisplay/formDisplay.action'
 import Account from '../components/Account'
 import EditNameForm from '../features/formDisplay/editNameForm'
+import { hideForm, showForm } from '../features/formDisplay/formDisplay.action'
 
 function Login() {
   const dispatch = useDispatch()

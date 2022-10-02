@@ -41,8 +41,7 @@ function EditNameForm() {
 
   return (
     <form className="edit-name">
-      <div className="left-form input-wrapper ">
-        <label htmlFor="firstName"></label>
+      <label htmlFor="firstName" className="firstName-wrapper">
         <input
           type="text"
           name="firstName"
@@ -52,12 +51,11 @@ function EditNameForm() {
           value={firstName}
           tabIndex="1"
         />
-        <button className="save-button" onClick={handleSubmit} tabIndex="3">
-          Save
-        </button>
-      </div>
-      <div className="right-form input-wrapper ">
-        <label htmlFor="lastName"></label>
+      </label>
+      <button className="save-button" onClick={handleSubmit} tabIndex="3">
+        Save
+      </button>
+      <label htmlFor="lastName" className="lastName-wrapper">
         <input
           type="text"
           name="lastName"
@@ -67,11 +65,11 @@ function EditNameForm() {
           value={lastName}
           tabIndex="2"
         />
+      </label>
 
-        <button className="cancel-button" onClick={handleCancel} tabIndex="4">
-          Cancel
-        </button>
-      </div>
+      <button className="cancel-button" onClick={handleCancel} tabIndex="4">
+        Cancel
+      </button>
     </form>
   )
 }

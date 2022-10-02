@@ -188,20 +188,86 @@ body {
   margin-left: 0.25rem;
 }
 
-.input-wrapper {
-  display: flex;
-  flex-direction: column;
+form.edit-name {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    ' firstName lastName'
+    ' saveBtn cancelBtn';
+  gap: 30px;
+  margin: 0 auto;
   text-align: left;
   margin-bottom: 1rem;
+  width: 550px;
 }
 
-.input-wrapper label {
+.firstName-wrapper {
+  grid-area: firstName;
+  justify-self: end;
+}
+
+.lastName-wrapper {
+  grid-area: lastName;
+}
+
+form.edit-name label {
   font-weight: bold;
 }
 
-.input-wrapper input {
+form.edit-name input {
   padding: 5px;
   font-size: 1.2rem;
+}
+
+form.edit-name div {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.edit-button {
+  border-color: #00bc77;
+  background-color: #00bc77;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.save-button,
+.cancel-button {
+  border-color: #00bc77;
+  background-color: white;
+  color: #00a568;
+  font-weight: bold;
+  font-size: 15px;
+  min-width: 120px;
+  width: 50%;
+  padding: 10px 0;
+}
+
+.cancel-button {
+  grid-area: cancelBtn;
+}
+
+.save-button {
+  grid-area: saveBtn;
+  justify-self: end;
+}
+@media (max-width: 720px) {
+  form.edit-name {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      ' firstName firstName' 'lastName lastName'
+      ' saveBtn cancelBtn';
+    width: 80%;
+  }
+  .firstName-wrapper {
+    justify-self: center;
+  }
+  .lastName-wrapper {
+    justify-self: center;
+  }
 }
 
 .footer {
@@ -214,28 +280,6 @@ body {
 .footer-text {
   margin: 0;
   padding: 0;
-}
-
-form.edit-name {
-  display: flex;
-  justify-content: center;
-  width: 50%;
-  gap: 30px;
-  margin: 0 auto;
-}
-
-form.edit-name div {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-form .left-form {
-  align-items: flex-end;
-}
-
-form .right-form {
-  align-items: flex-start;
 }
 
 .account {
@@ -273,25 +317,6 @@ form .right-form {
 .account-content-wrapper {
   width: 100%;
   flex: 1;
-}
-
-.edit-button {
-  border-color: #00bc77;
-  background-color: #00bc77;
-  color: #fff;
-  font-weight: bold;
-  padding: 10px;
-}
-
-.save-button,
-.cancel-button {
-  border-color: #00bc77;
-  background-color: white;
-  color: #00a568;
-  font-weight: bold;
-  font-size: 15px;
-  width: 50%;
-  padding: 10px 0;
 }
 
 .header {

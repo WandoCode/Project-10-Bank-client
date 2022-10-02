@@ -13,6 +13,7 @@ This project need to be run with the linked [backend](https://github.com/WandoCo
 ## Installation
 
 - Fork and clone this repo.
+- Be sure the backend server is running.
 - `npm install`
 - `npm start` to launch the project
 

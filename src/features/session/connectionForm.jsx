@@ -78,4 +78,3 @@ function ConnectionForm() {
 }
 
 export default ConnectionForm
-//TODO: gérer le remeber me

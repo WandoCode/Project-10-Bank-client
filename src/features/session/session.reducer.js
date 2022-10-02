@@ -8,16 +8,15 @@ import {
 } from './session.actions'
 
 const initialState = {
-  status: false,
-  token: undefined,
-  error: false,
-  errorMessage: '',
+  id: null,
   email: '',
   firstName: '',
   lastName: '',
-  id: null,
+  token: undefined,
+  error: false,
+  errorMessage: '',
+  status: false,
 }
-// TODO: (mentor): ok de mettre le token ici?
 
 const sessionReducer = createReducer(initialState, (builder) => {
   builder

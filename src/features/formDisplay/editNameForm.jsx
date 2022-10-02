@@ -23,7 +23,7 @@ function EditNameForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // TODO:(mentor) besoin de valider les données? Pas d'infos sur les conditions coté serveur
+
     const formDatas = {
       firstName,
       lastName,
@@ -31,7 +31,6 @@ function EditNameForm() {
 
     dispatch(changeNamesMiddleware(token, formDatas))
 
-    // TODO: hide only if change successfull
     dispatch(hideForm())
   }
 

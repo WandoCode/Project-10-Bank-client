@@ -1,6 +1,6 @@
 # Argent Bank
 
-This repo contains the fronend code of the Argent Bank Project.
+This repo contains the frontend code of the Argent Bank Project.
 
 ## Prerequisites
 

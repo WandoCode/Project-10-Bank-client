@@ -1,4 +1,10 @@
 {
+  "hero": {
+    "titleA": "No fees.",
+    "titleB": "No minimum deposit.",
+    "titleC": "High interest rates.",
+    "text": "Open a savings account with Argent Bank today!"
+  },
   "chatDatas": {
     "title": "You are our #1 priority",
     "text": "Need to talk to a representative? You can get in touch through our 24/7 chat or through a phone call in less than 5 minutes.",
